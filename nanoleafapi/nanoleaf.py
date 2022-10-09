@@ -622,7 +622,6 @@ class Nanoleaf():
                 raise Exception("Valid event types must be between 1-4")
         self.already_registered = True
         thread = Thread(target=self.__event_listener, args=(func, set(event_types)))
-        thread.daemon = True
         thread.start()
 
     def __event_listener(self, func : Callable[[Dict[str, Any]], Any],
